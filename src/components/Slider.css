@@ -1,0 +1,44 @@
+/* Set the carousel size */
+.custom-carousel {
+  max-width: 330px;
+  margin: 0 auto; /* Center the carousel */
+}
+
+/* Set the carousel item wrapper styles */
+.carousel-item-wrapper {
+  border-radius: 8px; /* Add border radius */
+  border: rgb(226, 232, 240);
+  background-color: #fff; /* Add background color */
+  position: relative; /* Ensure proper positioning for child elements */
+  margin: 10px 0; 
+}
+
+/* Set the image size */
+.custom-carousel-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* Ensures images fit within the dimensions */
+  border-top-left-radius: 8px; /* Match the parent border radius */
+  border-top-right-radius: 8px; /* Match the parent border radius */
+}
+
+/* Style the caption */
+.custom-caption {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid rgb(226, 232, 240); /* Add top border */
+  border-bottom-left-radius: 8px; /* Match the parent border radius */
+  border-bottom-right-radius: 8px; /* Match the parent border radius */
+}
+
+@media (min-width: 768px) {
+  .custom-carousel {
+    max-width: 340px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-carousel {
+    max-width: 370px;
+  }
+}
