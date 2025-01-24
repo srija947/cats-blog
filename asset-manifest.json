@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cats-blog/static/css/main.a9e01f2d.css",
+    "main.js": "/cats-blog/static/js/main.b2f89ebd.js",
+    "static/js/488.e360f9e9.chunk.js": "/cats-blog/static/js/488.e360f9e9.chunk.js",
+    "index.html": "/cats-blog/index.html",
+    "main.a9e01f2d.css.map": "/cats-blog/static/css/main.a9e01f2d.css.map",
+    "main.b2f89ebd.js.map": "/cats-blog/static/js/main.b2f89ebd.js.map",
+    "488.e360f9e9.chunk.js.map": "/cats-blog/static/js/488.e360f9e9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9e01f2d.css",
+    "static/js/main.b2f89ebd.js"
+  ]
+}
