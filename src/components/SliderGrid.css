@@ -1,33 +1,29 @@
-/* Center the main grid container */
 .slider-grid-container {
     display: flex;
-    justify-content: center; /* Center the grid horizontally */
-    padding: 16px; /* Optional padding around the grid */
+    justify-content: center; 
+    padding: 16px; 
     box-sizing: border-box;
     width: 100%;
   }
   
-  /* Grid container */
   .slider-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Default: 1 column for mobile */
-    gap: 30px; /* Minimal spacing between sliders */
-    max-width: 1200px; /* Optional max width for the grid */
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+    max-width: 1200px; 
     width: 100%;
   }
   
   /* Responsive design */
   @media (min-width: 768px) {
     .slider-grid {
-      grid-template-columns: repeat(2, 1fr); /* Medium devices: 2 columns */
+      grid-template-columns: repeat(2, 1fr); 
     }
   }
   
   @media (min-width: 1024px) {
     .slider-grid {
-      grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
+      grid-template-columns: repeat(3, 1fr); 
     }
   }
-  
-  /* Slider wrapper for better styling */
   
