@@ -1,6 +1,6 @@
 {
-  "name": "cats-blog",
   "homepage": "https://srija947.github.io/cats-blog",
+  "name": "cats-blog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
