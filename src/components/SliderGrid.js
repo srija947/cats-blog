@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Slider from "./Slider";
 import sliderData from "../data";
 import "./SliderGrid.css";
@@ -31,8 +31,10 @@ export default function SliderGrid() {
   const [visibleData, setVisibleData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loading, setLoading] = useState(false);
+  const observerRef = useRef(null); // Reference to the "Load More" div
 
   const loadMoreSliders = () => {
+    if (loading) return; // Prevent duplicate calls
     setLoading(true);
 
     setTimeout(() => {
@@ -43,12 +45,32 @@ export default function SliderGrid() {
       ]);
       setCurrentIndex(nextIndex);
       setLoading(false);
-    }, 1000);
+    }, 2000);
   };
 
   useEffect(() => {
-    loadMoreSliders();
+    loadMoreSliders(); // Load initial sliders
   }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const target = entries[0];
+        if (target.isIntersecting && !loading && currentIndex < sliderData.length) {
+          loadMoreSliders(); // Trigger loading more sliders
+        }
+      },
+      { threshold: 1.0 } // Trigger when the "Load More" div is fully visible
+    );
+
+    if (observerRef.current) {
+      observer.observe(observerRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) observer.unobserve(observerRef.current);
+    };
+  }, [loading, currentIndex]); // Re-run when loading or currentIndex changes
 
   return (
     <div className="slider-grid-container">
@@ -61,11 +83,18 @@ export default function SliderGrid() {
 
         {loading && <SpinnerLoad />}
 
+        {/* Load More trigger element */}
         {!loading && currentIndex < sliderData.length && (
-          <div className="slider" key="load-more">
+          <div
+            ref={observerRef}
+            style={{
+              height: "50px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <SpinnerLoad />
-
-            {loadMoreSliders()}
           </div>
         )}
       </div>
